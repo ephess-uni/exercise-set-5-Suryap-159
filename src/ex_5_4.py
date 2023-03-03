@@ -16,6 +16,10 @@ output_dir = root_dir / "outputs"
 input_file = data_dir / "ex_5_4-data.csv"
 output_file = output_dir / "ex_5_4-processed.csv"
 
+data = np.loadtxt(input_file)
+data[data<0] = 0
+np.savetxt(output_file, data)
+
 # Process the input data using numpy
 
 # Save the result to output_file
