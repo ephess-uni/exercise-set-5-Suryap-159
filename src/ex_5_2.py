@@ -24,3 +24,9 @@ if __name__ == "__main__":
     # Complete the data processing steps using numpy here.
 
     # Save the output to OUTFILE using numpy routines.
+    import os
+    
+    data = np.loadtxt(INFILE)
+    output = (data - data.mean(axis=0)) / data.std(axis=0)
+    os.makedirs(root_dir / "outputs", exist_ok=True)
+    np.savetxt(OUTFILE, output, fmt='%.2e')
